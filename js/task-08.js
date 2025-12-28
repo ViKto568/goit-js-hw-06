@@ -1,10 +1,13 @@
 const form = document.querySelector("form.login-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const { elements: { email, password } } = event.currentTarget;
 
-  if (email.value === "" || password.value === "") {
-    alert("All fields must be filled out");
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
+
+  if (email.value.trim() === "" || password.value.trim() === "") {
+    alert("All fields must be filled!");
     return;
   }
 
@@ -14,5 +17,5 @@ form.addEventListener("submit", (event) => {
   };
 
   console.log(formData);
-  form.reset();
-});
+  event.currentTarget.reset();
+});  
